@@ -1,0 +1,26 @@
+{% extends 'w_app/homepage.html' %}
+
+
+{% block content %}
+
+
+<style>
+
+ul {
+  display: none;
+}
+
+</style>
+
+
+
+<form method="post" action="{% url 'users:register' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <button name="submit">register</button>
+  <input type="hidden" name="next" value="{% url 'w_app:homepage' %}" />
+</form>
+
+
+{% endblock content %}

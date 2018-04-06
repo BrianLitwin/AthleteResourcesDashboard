@@ -1,0 +1,17 @@
+
+
+  {% if forms.errors %}
+  <p>Your Username and Password don't match. PLS Try Again</p>
+  {% endif %}
+
+  {% block content %}
+  
+    <h2>Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Login</button>
+      <input type="hidden" name="next" value="{% url 'users:homepage' %}" />
+    </form>
+
+  {% endblock %}
